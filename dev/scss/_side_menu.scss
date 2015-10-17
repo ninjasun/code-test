@@ -1,14 +1,114 @@
 
-.left_side_menu{
-  position:relative;
-  float:left;
+.left_side_menu {
+  position: relative;
+  float: left;
   width: 100%;
-  height:1100px;
+  height: 1100px;
   max-width: 320px;
-  background-color: $color_grey_1;
-  padding:19px;
 
-  .server_controls_container{
+  background-color: $color_grey_1;
+
+
+  .server_controls_container {
+    height: 395px;
+    width: 100%;
+    padding:{
+      top:19px;
+    }
+    margin: {
+      left: auto;
+      right: auto;
+    }
+
+    .btn-box {
+      width: 50%;
+      float: left;
+      text-align: center;
+      span {
+        margin: {
+          top: 40px;
+        }
+        display: block;
+        color: $color_grey_5;
+        -webkit-transition: all 0.3s ease-in-out; /* Safari */
+        transition: all 0.3s ease-in-out;
+      }
+      a:hover {
+        & + span {
+          color: $color_white;
+        }
+      }
+    }
+  }
+
+  .app_list_container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+
+    .list_title {
+      position: absolute;
+      top: -28px;
+      left: 33px;
+
+      font-size: 14px;
+      color: $color_grey_0;
+      text-transform: capitalize;
+    }
+
+    .app_box {
+      height: 60px;
+      width: 100%;
+      display: table;
+      position: relative;
+      border-bottom: 1px solid transparent;
+      background-color: $color_grey_2;
+      border-left: 5px solid transparent; //each app item must overwrite this prop
+
+      .app_title {
+        color: $color_white;
+        font-size: 16px;
+        vertical-align: middle;
+        display: table-cell;
+        text-transform: capitalize;
+        padding: {
+          left: 31px;
+        }
+      }
+      .btns_container {
+        position: absolute;
+        top: 13px;
+        right: -16px;
+        a:first-child {
+          margin: {
+            right: 9px;
+          }
+        }
+      }
+    }
+
+    .app_box_hadoop{
+      @extend .app_box;
+      border-left-color:$color_1;
+    }
+    .app_box_rails{
+      @extend .app_box;
+      border-left-color:$color_2;
+    }
+    .app_box_chronos{
+      @extend .app_box;
+      border-left-color:$color_3;
+    }
+    .app_box_storm{
+      @extend .app_box;
+      border-left-color:$color_4;
+    }
+    .app_box_spark{
+      @extend .app_box;
+      border-left-color:$color_5;
+    }
+
 
   }
 }

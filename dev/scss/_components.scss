@@ -1,9 +1,35 @@
-.btn{
+.btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid $color_grey_4;
+  border-radius: 25px;
+  color: $color_grey_4;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-in-out; /* Safari */
+  transition: all 0.3s ease-in-out;
 
+  i {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  &:hover {
+    cursor: pointer;
+    color: $color_white;
+    border-color: $color_white;
+  }
 }
 
-.btn-large{
-
+.btn-large {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  i {
+    font-size: 30px;
+    margin-top: 15px;
+  }
 }
 
 

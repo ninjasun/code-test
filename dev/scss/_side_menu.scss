@@ -8,12 +8,11 @@
 
   background-color: $color_grey_1;
 
-
   .server_controls_container {
     height: 395px;
     width: 100%;
-    padding:{
-      top:19px;
+    padding: {
+      top: 19px;
     }
     margin: {
       left: auto;
@@ -28,11 +27,19 @@
         margin: {
           top: 40px;
         }
+
         display: block;
         color: $color_grey_5;
         -webkit-transition: all 0.3s ease-in-out; /* Safari */
         transition: all 0.3s ease-in-out;
       }
+      span:hover {
+        cursor: pointer;
+        & + a {
+          color: $color_white;
+        }
+      }
+
       a:hover {
         & + span {
           color: $color_white;
@@ -59,7 +66,7 @@
 
     .app_box {
       height: 60px;
-      width: 100%;
+      width: 315px;
       display: table;
       position: relative;
       border-bottom: 1px solid transparent;
@@ -80,6 +87,7 @@
         position: absolute;
         top: 13px;
         right: -16px;
+
         a:first-child {
           margin: {
             right: 9px;
@@ -88,27 +96,71 @@
       }
     }
 
-    .app_box_hadoop{
+    .app_box_hadoop {
       @extend .app_box;
-      border-left-color:$color_1;
+      border-left-color: $color_1;
+      .btn-add{
+        border-color:transparent;
+
+        background: -webkit-linear-gradient(left top,$color_6, $color_1); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_6, $color_1); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_6, $color_1); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_6, $color_1); /* Standard syntax */
+
+        &:hover{
+
+        }
+      }
     }
-    .app_box_rails{
+    .app_box_rails {
       @extend .app_box;
-      border-left-color:$color_2;
+      border-left-color: $color_2;
+      .btn-add{
+        border-color:transparent;
+        background: -webkit-linear-gradient(left top,$color_7, $color_2); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_7, $color_2); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_7, $color_2); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_7, $color_2); /* Standard syntax */
+        &:hover{
+
+        }
+      }
     }
-    .app_box_chronos{
+    .app_box_chronos {
       @extend .app_box;
-      border-left-color:$color_3;
+      border-left-color: $color_3;
+      .btn-add{
+        border-color:transparent;
+
+        background: -webkit-linear-gradient(left top,$color_8, $color_3); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_8, $color_3); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_8, $color_3); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_8, $color_3); /* Standard syntax */
+      }
     }
-    .app_box_storm{
+    .app_box_storm {
       @extend .app_box;
-      border-left-color:$color_4;
-    }
-    .app_box_spark{
-      @extend .app_box;
-      border-left-color:$color_5;
+      border-left-color: $color_4;
+      .btn-add{
+        border-color:transparent;
+        background: -webkit-linear-gradient(left top,$color_9, $color_4); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_9, $color_4); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_9, $color_4); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_9, $color_4); /* Standard syntax */
+      }
     }
 
+    .app_box_spark {
+      @extend .app_box;
+      border-left-color: $color_5;
+      .btn-add{
+        border-color:transparent;
+        background: -webkit-linear-gradient(left top,$color_10, $color_5); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_10, $color_5); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_10, $color_5); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_10, $color_5); /* Standard syntax */
+      }
+    }
 
   }
 }

@@ -1,7 +1,6 @@
 .main_content{
-  width: 100%;
-  max-width: 930px;
-  height:1100px;
+  width: 930px;
+  height:1040px;
   padding:{
     top:30px;
     left:30px;
@@ -33,18 +32,84 @@
     .server_item{
       height: 140px;
       width: 200px;
-      text-align: center;
       float:left;
       display: inline-block;
-
+     // display:none;
       border-radius: 5px;
       background-color: $color_grey_1;
-      padding:{
-        top:30px;
-      }
+
       margin:{
         right:20px;
         bottom: 20px;
+      }
+      .app_box{
+        text-align: center;
+        width: 100%;
+        height:100%;
+        z-index: 2;
+        .short_title{
+          font-size:25px;
+          color:$color_white;
+          display:block;
+          margin:{
+            top:35px;
+          }
+        }
+        .title{
+          font-size:16px;
+          font-weight: bold;
+          color:$color_white;
+          display:block;
+          margin:{
+            top:20px;
+            bottom:10px;
+          }
+        }
+        .added{
+          color:$color_black;
+          display:block;
+        }
+      }
+      .app_half_box{
+        height: 50%;
+        .short_title{
+          font-size: 16px;
+          margin:{
+            top:8px;
+            bottom:4px;
+          }
+        }
+        .title{
+          font-size:14px;
+          margin:{
+            top:4px;
+          }
+        }
+        .added{
+
+        }
+      }
+
+      .app_box_hadoop{
+        @extend .app_box;
+        background: -webkit-linear-gradient(left top,$color_6, $color_1); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_6, $color_1); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_6, $color_1); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_6, $color_1); /* Standard syntax */
+      }
+      .app_box_rails{
+        @extend .app_box;
+        background: -webkit-linear-gradient(left top,$color_7, $color_2); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_7, $color_2); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_7, $color_2); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_7, $color_2); /* Standard syntax */
+      }
+      .app_box_storm{
+        @extend .app_box;
+        background: -webkit-linear-gradient(left top,$color_9, $color_4); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_9, $color_4); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_9, $color_4); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_9, $color_4); /* Standard syntax */
       }
     }
   }

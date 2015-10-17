@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>app test code</title>
-  <script type="text/javascript" src="assets/js/app.js"></script>
+
   <link type="text/css" rel="stylesheet" href="assets/css/main.css">
 
   <link type="text/css" rel="stylesheet" href="bower_components/font-awesome-min/css/font-awesome.min.css">
 
-  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script  src="bower_components/jquery/dist/jquery.js"></script>
+
+  <script src="bower_components/underscore/underscore.js"></script>
+
+
 </head>
 <body>
 
 <div class="container">
   <div class="left_side_menu">
     <div class="server_controls_container">
-      <div class="btn-box">
-        <a class="btn btn-large" href="javascript:void(0)"><i class="fa fa-plus"></i></a>
+      <div class="btn-box js-add-server text-right">
+        <a class="btn btn-large " href="javascript:void(0)"><i class="fa fa-plus"></i></a>
         <span class="">Add Server</span>
       </div>
 
-      <div class="btn-box">
-        <a class="btn btn-large"  href="javascript:void(0)"><i class="fa fa-minus"></i></a>
+      <div class="btn-box js-destroy-server text-left">
+        <a class="btn btn-large "  href="javascript:void(0)"><i class="fa fa-minus"></i></a>
         <span class="">Destroy</span>
       </div>
     </div>
@@ -32,8 +36,8 @@
         <div class="app_title">Hadoop</div>
 
         <div class="btns_container">
-          <a class="btn"><i class="fa fa-minus"></i></a>
-          <a class="btn"><i class="fa fa-plus"></i></a>
+          <a class="btn js-destroy-app"><i class="fa fa-minus"></i></a>
+          <a class="btn btn-add js-add-app"><i class="fa fa-plus"></i></a>
         </div>
       </div>
 
@@ -41,8 +45,8 @@
         <div class="app_title">Rails</div>
 
         <div class="btns_container">
-          <a class="btn"><i class="fa fa-minus"></i></a>
-          <a class="btn"><i class="fa fa-plus"></i></a>
+          <a class="btn js-destroy-app"><i class="fa fa-minus"></i></a>
+          <a class="btn btn-add js-add-app"><i class="fa fa-plus"></i></a>
         </div>
       </div>
 
@@ -50,8 +54,8 @@
         <div class="app_title">Chronos</div>
 
         <div class="btns_container">
-          <a class="btn"><i class="fa fa-minus"></i></a>
-          <a class="btn"><i class="fa fa-plus"></i></a>
+          <a class="btn js-destroy-app"><i class="fa fa-minus"></i></a>
+          <a class="btn btn-add js-add-app"><i class="fa fa-plus"></i></a>
         </div>
       </div>
 
@@ -59,8 +63,8 @@
         <div class="app_title">Storm</div>
 
         <div class="btns_container">
-          <a class="btn"><i class="fa fa-minus"></i></a>
-          <a class="btn"><i class="fa fa-plus"></i></a>
+          <a class="btn js-destroy-app"><i class="fa fa-minus"></i></a>
+          <a class="btn btn-add js-add-app"><i class="fa fa-plus"></i></a>
         </div>
       </div>
 
@@ -68,8 +72,8 @@
         <div class="app_title">Spark</div>
 
         <div class="btns_container">
-          <a class="btn"><i class="fa fa-minus"></i></a>
-          <a class="btn"><i class="fa fa-plus"></i></a>
+          <a class="btn js-destroy-app"><i class="fa fa-minus"></i></a>
+          <a class="btn btn-add js-add-app"><i class="fa fa-plus"></i></a>
         </div>
       </div>
 
@@ -81,15 +85,19 @@
     <span class="block main_title">Server Canvas</span>
 
     <div class="main_container">
-      <div class="server_item"></div>
-      <div class="server_item"></div>
-      <div class="server_item"></div>
-      <div class="server_item"></div>
 
 
     </div>
   </div>
 </div>
 
+<footer>
+
+  <script type="text/javascript" src="assets/js/appView.js" ></script>
+
+  <script type="text/javascript" src="assets/js/appController.js" ></script>
+
+  <script type="text/javascript" src="assets/js/app.js" ></script>
+</footer>
 </body>
 </html>

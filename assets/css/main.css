@@ -4,7 +4,7 @@
   width: 30px;
   height: 30px;
   background-color: transparent;
-  border: 1px solid #323232;
+  border: 2px solid #323232;
   border-radius: 25px;
   color: #323232;
   text-decoration: none;
@@ -28,9 +28,8 @@
     margin-top: 15px; }
 
 .main_content {
-  width: 100%;
-  max-width: 930px;
-  height: 1100px;
+  width: 930px;
+  height: 1040px;
   padding-top: 30px;
   padding-left: 30px;
   padding-right: 10px;
@@ -52,14 +51,59 @@
     .main_content .main_container .server_item {
       height: 140px;
       width: 200px;
-      text-align: center;
       float: left;
       display: inline-block;
       border-radius: 5px;
       background-color: #1e1e1e;
-      padding-top: 30px;
       margin-right: 20px;
       margin-bottom: 20px; }
+      .main_content .main_container .server_item .app_box, .main_content .main_container .server_item .app_box_hadoop, .main_content .main_container .server_item .app_box_rails, .main_content .main_container .server_item .app_box_storm, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        z-index: 2; }
+        .main_content .main_container .server_item .app_box .short_title, .main_content .main_container .server_item .app_box_hadoop .short_title, .main_content .main_container .server_item .app_box_rails .short_title, .main_content .main_container .server_item .app_box_storm .short_title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos .short_title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos .short_title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark .short_title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark .short_title {
+          font-size: 25px;
+          color: #fff;
+          display: block;
+          margin-top: 35px; }
+        .main_content .main_container .server_item .app_box .title, .main_content .main_container .server_item .app_box_hadoop .title, .main_content .main_container .server_item .app_box_rails .title, .main_content .main_container .server_item .app_box_storm .title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos .title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos .title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark .title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark .title {
+          font-size: 16px;
+          font-weight: bold;
+          color: #fff;
+          display: block;
+          margin-top: 20px;
+          margin-bottom: 10px; }
+        .main_content .main_container .server_item .app_box .added, .main_content .main_container .server_item .app_box_hadoop .added, .main_content .main_container .server_item .app_box_rails .added, .main_content .main_container .server_item .app_box_storm .added, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos .added, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos .added, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark .added, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark .added {
+          color: #000;
+          display: block; }
+      .main_content .main_container .server_item .app_half_box {
+        height: 50%; }
+        .main_content .main_container .server_item .app_half_box .short_title {
+          font-size: 16px;
+          margin-top: 8px;
+          margin-bottom: 4px; }
+        .main_content .main_container .server_item .app_half_box .title {
+          font-size: 14px;
+          margin-top: 4px; }
+      .main_content .main_container .server_item .app_box_hadoop {
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #bc0fcb, #f707a5);
+        /* Standard syntax */ }
+      .main_content .main_container .server_item .app_box_rails {
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #1d35f6, #3c2dee);
+        /* Standard syntax */ }
+      .main_content .main_container .server_item .app_box_storm {
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #36e685, #2ce19c);
+        /* Standard syntax */ }
 
 .left_side_menu {
   position: relative;
@@ -84,6 +128,10 @@
         color: #5d5d5d;
         /* Safari */
         transition: all 0.3s ease-in-out; }
+      .left_side_menu .server_controls_container .btn-box span:hover {
+        cursor: pointer; }
+        .left_side_menu .server_controls_container .btn-box span:hover + a {
+          color: #fff; }
       .left_side_menu .server_controls_container .btn-box a:hover + span {
         color: #fff; }
   .left_side_menu .app_list_container {
@@ -98,9 +146,9 @@
       font-size: 14px;
       color: #646464;
       text-transform: capitalize; }
-    .left_side_menu .app_list_container .app_box, .left_side_menu .app_list_container .app_box_hadoop, .left_side_menu .app_list_container .app_box_rails, .left_side_menu .app_list_container .app_box_chronos, .left_side_menu .app_list_container .app_box_storm, .left_side_menu .app_list_container .app_box_spark {
+    .left_side_menu .app_list_container .app_box, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_hadoop, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_hadoop, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_rails, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_rails, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_storm, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_storm, .left_side_menu .app_list_container .app_box_hadoop, .left_side_menu .app_list_container .app_box_rails, .left_side_menu .app_list_container .app_box_chronos, .left_side_menu .app_list_container .app_box_storm, .left_side_menu .app_list_container .app_box_spark {
       height: 60px;
-      width: 100%;
+      width: 315px;
       display: table;
       position: relative;
       border-bottom: 1px solid transparent;
@@ -121,14 +169,49 @@
           margin-right: 9px; }
     .left_side_menu .app_list_container .app_box_hadoop {
       border-left-color: #f707a5; }
+      .left_side_menu .app_list_container .app_box_hadoop .btn-add {
+        border-color: transparent;
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #bc0fcb, #f707a5);
+        /* Standard syntax */ }
     .left_side_menu .app_list_container .app_box_rails {
       border-left-color: #3c2dee; }
+      .left_side_menu .app_list_container .app_box_rails .btn-add {
+        border-color: transparent;
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #1d35f6, #3c2dee);
+        /* Standard syntax */ }
     .left_side_menu .app_list_container .app_box_chronos {
       border-left-color: #01aafd; }
+      .left_side_menu .app_list_container .app_box_chronos .btn-add {
+        border-color: transparent;
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #02c8fb, #01aafd);
+        /* Standard syntax */ }
     .left_side_menu .app_list_container .app_box_storm {
       border-left-color: #2ce19c; }
+      .left_side_menu .app_list_container .app_box_storm .btn-add {
+        border-color: transparent;
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #36e685, #2ce19c);
+        /* Standard syntax */ }
     .left_side_menu .app_list_container .app_box_spark {
       border-left-color: #69fa1a; }
+      .left_side_menu .app_list_container .app_box_spark .btn-add {
+        border-color: transparent;
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #72fc05, #69fa1a);
+        /* Standard syntax */ }
 
 .container {
   max-width: 1366px;

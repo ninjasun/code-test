@@ -1,0 +1,51 @@
+.main_content{
+  width: 100%;
+  max-width: 930px;
+  height:1100px;
+  padding:{
+    top:30px;
+    left:30px;
+    right:10px;
+    bottom: 30px;
+  }
+  background-color: $color_black;
+  float:left;
+  position:relative;
+
+  .main_title{
+    font-size:30px;
+    color:$color_white;
+    padding:{
+      top:5px;
+      bottom:10px;
+    }
+  }
+
+  .main_container{
+    width: 100%;
+    height:100%;
+    position: relative;
+    padding:{
+      left:10px;
+      top:30px;
+    }
+
+    .server_item{
+      height: 140px;
+      width: 200px;
+      text-align: center;
+      float:left;
+      display: inline-block;
+
+      border-radius: 5px;
+      background-color: $color_grey_1;
+      padding:{
+        top:30px;
+      }
+      margin:{
+        right:20px;
+        bottom: 20px;
+      }
+    }
+  }
+}

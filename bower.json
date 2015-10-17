@@ -1,0 +1,25 @@
+{
+  "name": "code",
+  "description": "code test",
+  "main": "",
+  "authors": [
+    "ninjasun <davide.mezzetti@hotmail.it>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap-sass": "~3.3.5",
+    "reset-scss": "*",
+    "font-awesome-min": "~4.3.0"
+  }
+}

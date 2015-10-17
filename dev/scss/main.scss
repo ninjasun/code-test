@@ -1,0 +1,17 @@
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap';
+
+@import '_vars';
+
+@import '_content';
+
+@import '_side_menu';
+
+
+.container{
+  max-width: 1366px;
+  width: 100%;
+  margin:{
+    left:auto;
+    right:auto;
+  }
+}

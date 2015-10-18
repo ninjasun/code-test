@@ -33,6 +33,7 @@ var view = function (app, cluster) {
 
             var server_destroyed = app.controller.destroyServer();
             console.log("server destrutto is: ", server_destroyed);
+
             destroyServer(server_destroyed.id);
         });
 
@@ -51,28 +52,46 @@ var view = function (app, cluster) {
         });
         //DESTROY APP
         $('.js-destroy-app').on('click', function (e) {
-            // console.log("-JS DESTROY APP, ", e, this);
-            var app = $(this).parent().siblings().text().toLowerCase();
+             console.log("-JS DESTROY APP, ", e, this);
+            var app_type = $(this).parent().siblings().text().toLowerCase();
+            var status = app.controller.destroyApp(app_type);
+            if (status.status == 'OK') {
+                console.log("status OK: ",status);
+                destroyApp(status.body);
+
+            }
+            else {
+                alert('ERROR: removing app');
+            }
+        });
+    };//CLOSE INIT
+
+
+    /* DESTROY APP */
+    var destroyApp = function(option){
+        var id_app = option.app.id;
+        var id_server = option.server.id;
+        var serverContainer = $('#' + id_server);
+        var app_target = $('#' + id_app);
+
+
+        app_target.hide('slow', function () {
+            app_target.remove();
+            serverContainer.children('div').removeClass('app_half_box');
         });
 
     };
     var displayApp = function (option) {
-        //var option = option || {};
-
-        console.log("display app: ", option);
-
         var serverContainer = $('#' + option.server.id);
         var double_app = "";
         if (option.app_index === 1){
             double_app = 'app_half_box';
            serverContainer.children('div').addClass('app_half_box');
         }
-        var app_item = '<div class="app_box_' + option.app.type + ' ' +double_app+'" ><span class="short_title">' + option.app.short_name + '</span><span class="title">' + option.app.type + '</span></div>';
+        var app_item = '<div class="app_box_' + option.app.type + ' ' +double_app+'" id="'+option.app.id +'" ><span class="short_title">' + option.app.short_name + '</span><span class="title">' + option.app.type + '</span></div>';
 
         serverContainer.append(app_item);
-
     };
-
     /*CREATE A ITEM SERVER IN THE VIEW WITH ID=id*/
     var displayServer = function (id) {
 
@@ -84,15 +103,12 @@ var view = function (app, cluster) {
     };
     /*DESTROU A ITEM SERVER IN THE VIEW WITH ID=id*/
     var destroyServer = function (id) {
-        console.log("removing item: ", id);
-
         var server_target = $('#' + id);
-        console.log("target is: ", server_target);
+
         server_target.hide('slow', function () {
             server_target.remove();
         })
     };
-
     init();
 
     return view;

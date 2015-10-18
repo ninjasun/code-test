@@ -72,7 +72,7 @@ var controller = function (app) {
         _self.server_list = [];
         _self.cluster_max_size = 16; //max number of server
 
-        _self.getClusterMaxSize = function(){
+        _self.getClusterMaxSize = function () {
             return _self.cluster_max_size;
         };
         _self.getServerList = function () {
@@ -89,25 +89,26 @@ var controller = function (app) {
         };
         _self.addServer = function () {
             //add one server
-            if (_self.getServerList().length-1  < _self.getClusterMaxSize()-1){
+            if (_self.getServerList().length - 1 < _self.getClusterMaxSize() - 1) {
                 var randomID = _.uniqueId('server_');
                 var server = new Server(randomID);
+
                 _self.server_list.push(server);
                 return {
-                    status:'OK,',
+                    status: 'OK,',
                     value: randomID
                 };
             }
-            else{
+            else {
                 return {
                     status: 'KO',
-                    value:"CLUSTER IS FULL"
+                    value: "CLUSTER IS FULL"
                 };
             }
         };
         _self.destroyServer = function (id) {
             if (_.isUndefined(id)) {
-                //must destroy last in the list
+
                 var removed = _self.server_list.splice(_self.server_list.length - 1, 1);
                 console.log("server removed is: ", removed);
                 return removed[0];
@@ -181,21 +182,53 @@ var controller = function (app) {
 
         };
         _self.removeApp = function (type, id) {
+            /*return index of the server and index of the app  */
+            var findNewestApp = function (server_list, type) {
+                var status = {
+                    status: '',
+                    body: {
+                        server_index: -1,
+                        app_index: -1
+                    }
+                };
+                status.body.min_time_creation = _.now();
+
+                _.each(server_list, function (server, index_of_server) {
+                    _.each(server.apps, function (app, index_of_app) {
+                        if (app.type === type && app.date_creation < status.body.min_time_creation) {
+
+                            status.body.server_index = index_of_server;
+                            status.body.app_index = index_of_app;
+                            status.body.min_time_creation = app.date_creation;
+
+
+                        }
+                    })
+                });
+               // console.log("FIND NEWEST APP: ", status);
+                return status;
+            };
+
+            var status;
             //remove the newest app=type
 
-            var app_list_of_type,
-                app_newest;
+            status = findNewestApp(_self.getServerList(), type);
 
-            app_list_of_type = _.filter(_self.server_list, function (server) {
-                return _.each(server.apps, function (app) {
-                    return app.type == type;
-                })
-            });
+            var server = _self.getServerList()[status.body.server_index];
+            var app_removed =server.apps.splice(status.body.app_index,1);
+            if (app_removed){
+                status.status = 'OK';
+                status.body.server =server;
+                status.body.app =app_removed[0];
+            }
+            else{
+                status.status = 'KO';
+                status.message ='ERROR DELETING APP';
+                status.body = {};
+            }
+            //console.log("young app is: ", status.body.app);
+            return status;
 
-            app_newest = _.min(app_list_of_type, function (item) {
-                return item.date_creation;
-            });
-            console.log("young app is: ", app_newest);
         };
         return _self;
     }
@@ -227,7 +260,7 @@ var controller = function (app) {
         addApp: function (type, id) {
             return cluster.addApp(type, id);
         },
-        removeApp: function (type, id) {
+        destroyApp: function (type, id) {
             return cluster.removeApp(type, id);
         }
     };

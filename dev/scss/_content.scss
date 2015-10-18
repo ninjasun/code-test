@@ -47,12 +47,15 @@
         width: 100%;
         height:100%;
         z-index: 2;
+        -webkit-transition: all 0.3s ease-in-out; /* Safari */
+        transition: all 0.3s ease-in-out;
+
         .short_title{
           font-size:25px;
           color:$color_white;
           display:block;
-          margin:{
-            top:35px;
+          padding:{
+            top:25px;
           }
         }
         .title{
@@ -72,9 +75,12 @@
       }
       .app_half_box{
         height: 50%;
+        -webkit-transition: all 0.3s ease-in-out; /* Safari */
+        transition: all 0.3s ease-in-out;
+
         .short_title{
           font-size: 16px;
-          margin:{
+          padding:{
             top:8px;
             bottom:4px;
           }
@@ -110,6 +116,20 @@
         background: -o-linear-gradient(bottom right, $color_9, $color_4); /* For Opera 11.1 to 12.0 */
         background: -moz-linear-gradient(bottom right, $color_9, $color_4); /* For Firefox 3.6 to 15 */
         background: linear-gradient(to bottom right, $color_9, $color_4); /* Standard syntax */
+      }
+      .app_box_chronos{
+        @extend .app_box;
+        background: -webkit-linear-gradient(left top,$color_8, $color_3); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_8, $color_3); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_8, $color_3); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_8, $color_3); /* Standard syntax */
+      }
+      .app_box_spark{
+        @extend .app_box;
+        background: -webkit-linear-gradient(left top,$color_10, $color_5); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom right, $color_10, $color_5); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom right, $color_10, $color_5); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, $color_10, $color_5); /* Standard syntax */
       }
     }
   }

@@ -18,8 +18,14 @@ var view = function (app, cluster) {
         //ADD SERVER
         $('.js-add-server').on('click', function (e) {
 
-            var id_returned = app.controller.addServer();
-            displayServer(id_returned);
+            var status = app.controller.addServer();
+            if (status.status === 'KO'){
+                alert(status.value);
+                return
+            }
+            else{
+                displayServer(status.value);
+            }
         });
 
         // DESTROY SERVER
@@ -35,19 +41,33 @@ var view = function (app, cluster) {
             var app_type = $(this).parent().siblings().text().toLowerCase();
 
             var status = app.controller.addApp(app_type);
-           // console.log("-JS ADD APP, ",status.body.conf);
-            displayApp(status.body.server.id,status.body.conf);
+            console.log("-JS ADD APP, ", status);
+            if (status.status == 'OK') {
+                displayApp(status.body);
+            }
+            else {
+                alert('all server are full');
+            }
         });
         //DESTROY APP
         $('.js-destroy-app').on('click', function (e) {
-           // console.log("-JS DESTROY APP, ", e, this);
+            // console.log("-JS DESTROY APP, ", e, this);
             var app = $(this).parent().siblings().text().toLowerCase();
         });
 
     };
-    var displayApp = function(server_id, app_details){
-        var serverContainer = $('#'+server_id);
-        var app_item = '<div class="app_box_'+app_details.type+'" ><span class="short_title">'+app_details.short_name+'</span><span class="title">'+app_details.type+'</span></div>';
+    var displayApp = function (option) {
+        //var option = option || {};
+
+        console.log("display app: ", option);
+
+        var serverContainer = $('#' + option.server.id);
+        var double_app = "";
+        if (option.app_index === 1){
+            double_app = 'app_half_box';
+           serverContainer.children('div').addClass('app_half_box');
+        }
+        var app_item = '<div class="app_box_' + option.app.type + ' ' +double_app+'" ><span class="short_title">' + option.app.short_name + '</span><span class="title">' + option.app.type + '</span></div>';
 
         serverContainer.append(app_item);
 

@@ -57,32 +57,36 @@
       background-color: #1e1e1e;
       margin-right: 20px;
       margin-bottom: 20px; }
-      .main_content .main_container .server_item .app_box, .main_content .main_container .server_item .app_box_hadoop, .main_content .main_container .server_item .app_box_rails, .main_content .main_container .server_item .app_box_storm, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark {
+      .main_content .main_container .server_item .app_box, .main_content .main_container .server_item .app_box_hadoop, .main_content .main_container .server_item .app_box_rails, .main_content .main_container .server_item .app_box_storm, .main_content .main_container .server_item .app_box_chronos, .main_content .main_container .server_item .app_box_spark {
         text-align: center;
         width: 100%;
         height: 100%;
-        z-index: 2; }
-        .main_content .main_container .server_item .app_box .short_title, .main_content .main_container .server_item .app_box_hadoop .short_title, .main_content .main_container .server_item .app_box_rails .short_title, .main_content .main_container .server_item .app_box_storm .short_title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos .short_title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos .short_title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark .short_title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark .short_title {
+        z-index: 2;
+        /* Safari */
+        transition: all 0.3s ease-in-out; }
+        .main_content .main_container .server_item .app_box .short_title, .main_content .main_container .server_item .app_box_hadoop .short_title, .main_content .main_container .server_item .app_box_rails .short_title, .main_content .main_container .server_item .app_box_storm .short_title, .main_content .main_container .server_item .app_box_chronos .short_title, .main_content .main_container .server_item .app_box_spark .short_title {
           font-size: 25px;
           color: #fff;
           display: block;
-          margin-top: 35px; }
-        .main_content .main_container .server_item .app_box .title, .main_content .main_container .server_item .app_box_hadoop .title, .main_content .main_container .server_item .app_box_rails .title, .main_content .main_container .server_item .app_box_storm .title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos .title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos .title, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark .title, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark .title {
+          padding-top: 25px; }
+        .main_content .main_container .server_item .app_box .title, .main_content .main_container .server_item .app_box_hadoop .title, .main_content .main_container .server_item .app_box_rails .title, .main_content .main_container .server_item .app_box_storm .title, .main_content .main_container .server_item .app_box_chronos .title, .main_content .main_container .server_item .app_box_spark .title {
           font-size: 16px;
           font-weight: bold;
           color: #fff;
           display: block;
           margin-top: 20px;
           margin-bottom: 10px; }
-        .main_content .main_container .server_item .app_box .added, .main_content .main_container .server_item .app_box_hadoop .added, .main_content .main_container .server_item .app_box_rails .added, .main_content .main_container .server_item .app_box_storm .added, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos .added, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos .added, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark .added, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark .added {
+        .main_content .main_container .server_item .app_box .added, .main_content .main_container .server_item .app_box_hadoop .added, .main_content .main_container .server_item .app_box_rails .added, .main_content .main_container .server_item .app_box_storm .added, .main_content .main_container .server_item .app_box_chronos .added, .main_content .main_container .server_item .app_box_spark .added {
           color: #000;
           display: block; }
       .main_content .main_container .server_item .app_half_box {
-        height: 50%; }
+        height: 50%;
+        /* Safari */
+        transition: all 0.3s ease-in-out; }
         .main_content .main_container .server_item .app_half_box .short_title {
           font-size: 16px;
-          margin-top: 8px;
-          margin-bottom: 4px; }
+          padding-top: 8px;
+          padding-bottom: 4px; }
         .main_content .main_container .server_item .app_half_box .title {
           font-size: 14px;
           margin-top: 4px; }
@@ -103,6 +107,18 @@
         /* For Opera 11.1 to 12.0 */
         /* For Firefox 3.6 to 15 */
         background: linear-gradient(to bottom right, #36e685, #2ce19c);
+        /* Standard syntax */ }
+      .main_content .main_container .server_item .app_box_chronos {
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #02c8fb, #01aafd);
+        /* Standard syntax */ }
+      .main_content .main_container .server_item .app_box_spark {
+        /* For Safari 5.1 to 6.0 */
+        /* For Opera 11.1 to 12.0 */
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom right, #72fc05, #69fa1a);
         /* Standard syntax */ }
 
 .left_side_menu {
@@ -146,7 +162,7 @@
       font-size: 14px;
       color: #646464;
       text-transform: capitalize; }
-    .left_side_menu .app_list_container .app_box, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_hadoop, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_hadoop, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_rails, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_rails, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_storm, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_storm, .left_side_menu .app_list_container .app_box_hadoop, .left_side_menu .app_list_container .app_box_rails, .left_side_menu .app_list_container .app_box_chronos, .left_side_menu .app_list_container .app_box_storm, .left_side_menu .app_list_container .app_box_spark {
+    .left_side_menu .app_list_container .app_box, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_hadoop, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_hadoop, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_rails, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_rails, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_storm, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_storm, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_chronos, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_chronos, .left_side_menu .app_list_container .main_content .main_container .server_item .app_box_spark, .main_content .main_container .server_item .left_side_menu .app_list_container .app_box_spark, .left_side_menu .app_list_container .app_box_hadoop, .left_side_menu .app_list_container .app_box_rails, .left_side_menu .app_list_container .app_box_chronos, .left_side_menu .app_list_container .app_box_storm, .left_side_menu .app_list_container .app_box_spark {
       height: 60px;
       width: 315px;
       display: table;

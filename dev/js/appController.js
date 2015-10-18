@@ -5,11 +5,29 @@ var controller = function (app) {
 
     console.log("controller underscore is: ", _);
     function App(type, id) {
+        var getShortName = function (type) {
+            switch (type) {
+                case  'hadoop':
+                    return 'Hd';
+                case  'rails':
+                    return 'Rl';
+                case  'chronos':
+                    return 'Ch';
+                case  'storm':
+                    return 'St';
+                case  'spark':
+                    return 'Sk';
+            }
+        };
+
         var app = {
             id: id || _.uniqueId('app_'),
             type: type,
+            short_name: getShortName(type),
             date_creation: _.now()
+
         };
+
         return app;
     }
 
@@ -19,26 +37,25 @@ var controller = function (app) {
         _server.id = id;
         _server.apps = [];
         _server.apps_limit = 2;
+        /*return the index of the app created or -1 */
         _server.createApp = function (type, id) {
             var _self = this;
-            if (_self.apps.legnht == _self.apps) {
-                return {
-                    status: 'KO',
-                    message: 'server full'
-                }
+            if (_server.apps.legnth - 1 == _server.apps_limit) {
+                /* SERVER FULL*/
+                console.log("ERROR SERVER IS FULL ");
+                return -1;
             }
             var app = new App(type, id);
-            this.apps.push(app);
-            console.log("APP created");
-            return {
-                status: 'OK',
-                message: 'app created'
-            };
+            _server.apps.push(app);
+            console.log("APP created at index: ", _server.apps.length - 1);
+            return _server.apps.length - 1;
         };
+        /*return the app destroyed */
         _server.destroyApp = function (id) {
             var app_index = _.findIndex(this.apps, {id: id});
             return this.apps.splice(app_index, 1);
         };
+        /* destroy all the apps in the server*/
         _server.destroyAllApps = function () {
             var apps = [];
             _.each(this.apps, function (item, index) {
@@ -53,6 +70,11 @@ var controller = function (app) {
 
         var _self = this;
         _self.server_list = [];
+        _self.cluster_max_size = 16; //max number of server
+
+        _self.getClusterMaxSize = function(){
+            return _self.cluster_max_size;
+        };
         _self.getServerList = function () {
             return this.server_list;
         };
@@ -67,15 +89,25 @@ var controller = function (app) {
         };
         _self.addServer = function () {
             //add one server
-            var randomID = _.uniqueId('server_');
-            var server = new Server(randomID);
-            _self.server_list.push(server);
-            return randomID;
+            if (_self.getServerList().length-1  < _self.getClusterMaxSize()-1){
+                var randomID = _.uniqueId('server_');
+                var server = new Server(randomID);
+                _self.server_list.push(server);
+                return {
+                    status:'OK,',
+                    value: randomID
+                };
+            }
+            else{
+                return {
+                    status: 'KO',
+                    value:"CLUSTER IS FULL"
+                };
+            }
         };
         _self.destroyServer = function (id) {
             if (_.isUndefined(id)) {
                 //must destroy last in the list
-
                 var removed = _self.server_list.splice(_self.server_list.length - 1, 1);
                 console.log("server removed is: ", removed);
                 return removed[0];
@@ -99,36 +131,54 @@ var controller = function (app) {
             var status = {
                 status: "",
                 message: "",
-                body: {
-                    server: {},
-                    conf: {}
+                body: {}
+            };
+            var findServerFree = function () {
+                var server_free_index;
+
+                server_free_index = _.findIndex(_self.server_list, function (server) {
+                    console.log("check server slot: ", server);
+                    return server.apps.length === 0;
+                });
+                if (server_free_index != -1) {
+                    console.log("FOUND SLOT FREE in SERVER at index: ", server_free_index);
+                    return server_free_index;
+                }
+                else {
+                    server_free_index = _.findIndex(_self.server_list, function (server) {
+                        console.log("check server slot: ", server);
+                        return server.apps.length === 1;
+                    });
+                    if (server_free_index != -1) {
+                        console.log("FOUND SLOT FREE in SERVER at index: ", server_free_index);
+                        return server_free_index;
+                    }
+                    else {
+                        return -1; //no slot n any server is free;
+                    }
                 }
             };
-            _.each(_self.server_list, function (server) {
-                if (server.apps.length === 0) {
-                    //create an app in the server
-                    server.createApp(type, id);
-                    console.log("app created in server :", server);
-                    status.status = 'OK';
-                    status.body.server = server;
-                    status.body.conf = server.apps[0];
-                    return false;
-                }
+            var index_server_free = findServerFree();
 
-                else if (server.apps.lenght === 1) {
-                    server.createApp(type, id);
+            if (index_server_free != -1) {
 
+                var server_free = _self.server_list[index_server_free];
+
+                var app_index = server_free.createApp(type, id);
+                console.log("app created at indezx: ", app_index);
+                if (app_index != -1) {
                     status.status = 'OK';
-                    status.body.server = server;
-                    status.body.conf = server.apps[1];
-                    return false;
+                    status.body.server = server_free;
+                    status.body.app = server_free.apps[app_index];
+                    status.body.app_index = app_index;
                 }
                 else {
                     status.status = 'KO';
-                    status.message = "ALL server are full";
+                    status.message = "ALL SERVER FULL!";
                 }
-            });
-            return status;
+                return status;
+            }
+
         };
         _self.removeApp = function (type, id) {
             //remove the newest app=type

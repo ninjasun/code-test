@@ -32,7 +32,7 @@ var view = function (app, cluster) {
         $('.js-destroy-server').on('click', function (e) {
 
             var server_destroyed = app.controller.destroyServer();
-            console.log("server destrutto is: ", server_destroyed);
+           // console.log("server destrutto is: ", server_destroyed);
 
             destroyServer(server_destroyed.id);
         });
@@ -41,27 +41,30 @@ var view = function (app, cluster) {
         $('.js-add-app').on('click', function (e) {
             var app_type = $(this).parent().siblings().text().toLowerCase();
 
-            var status = app.controller.addApp(app_type);
-            console.log("-JS ADD APP, ", status);
-            if (status.status == 'OK') {
-                displayApp(status.body);
+            var res = app.controller.addApp(app_type);
+           // console.log("-JS ADD APP, ", res);
+
+            if (res.status == 'OK') {
+                displayApp(res.body);
             }
             else {
-                alert('all server are full');
+                alert(res.message);
             }
         });
         //DESTROY APP
         $('.js-destroy-app').on('click', function (e) {
              console.log("-JS DESTROY APP, ", e, this);
+
             var app_type = $(this).parent().siblings().text().toLowerCase();
-            var status = app.controller.destroyApp(app_type);
-            if (status.status == 'OK') {
-                console.log("status OK: ",status);
-                destroyApp(status.body);
+            var res = app.controller.destroyApp(app_type);
+            console.log("status OK: ",res);
+            if (res.status == 'OK') {
+               // console.log("status OK: ",res);
+                destroyApp(res.body);
 
             }
             else {
-                alert('ERROR: removing app');
+                alert(res.message);
             }
         });
     };//CLOSE INIT
@@ -74,7 +77,6 @@ var view = function (app, cluster) {
         var serverContainer = $('#' + id_server);
         var app_target = $('#' + id_app);
 
-
         app_target.hide('slow', function () {
             app_target.remove();
             serverContainer.children('div').removeClass('app_half_box');
@@ -82,6 +84,9 @@ var view = function (app, cluster) {
 
     };
     var displayApp = function (option) {
+
+        console.log("display app: ",option);
+
         var serverContainer = $('#' + option.server.id);
         var double_app = "";
         if (option.app_index === 1){
